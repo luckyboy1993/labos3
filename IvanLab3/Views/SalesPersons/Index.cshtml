@@ -1,0 +1,83 @@
+﻿@model IEnumerable<DALlab3.Entities.SalesPerson>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SalesQuota)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bonus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CommissionPct)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SalesYtd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SalesLastYear)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rowguid)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ModifiedDate)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessEntity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Territory)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesQuota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bonus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommissionPct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesYtd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SalesLastYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rowguid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessEntity.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Territory.CountryRegionCode)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BusinessEntityId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BusinessEntityId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BusinessEntityId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
